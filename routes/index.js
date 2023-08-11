@@ -5,7 +5,7 @@ const { v4: uuidv4 } = require('uuid');
 // Require fs to read and write to db.json
 const fs = require('fs');
 // Require db.json to pass info to frontend
-const db = require('../../db/db.json');
+const db = require('../db/db.json');
 
 router.get('/api/notes', (req, res) => {
     res.json(db);
@@ -31,9 +31,12 @@ router.post('/api/notes', (req, res) => {
 router.delete('/api/notes/:id', (req, res) => {
     const id = req.params.id;
     const index = db.findIndex(note => note.id === id);
+    // Use splice method to remove note from db.json
     db.splice(index, 1);
     fs.writeFile('./db/db.json', JSON.stringify(db), (err) => {
         if (err) throw err;
         res.json(db);
     });
 });
+
+module.exports = router;
