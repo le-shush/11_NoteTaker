@@ -7,6 +7,9 @@
 
 An app that allows you to take, store and delete notes. 
 
+## Disclaimer
+This project was created by refactoring code from the course, online forums, from friends' advice and with the help of ChatGPT and Github CoPilot to reduce development times. 
+
 ## Table of Contents
 
 * [Installation](#installation)
